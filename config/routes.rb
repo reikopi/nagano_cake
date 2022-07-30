@@ -16,24 +16,24 @@ Rails.application.routes.draw do
 
   # 会員側のルーティング設定
   namespace :public do
-    resources :homes
-    resources :items
-    resources :registrations
-    resources :sessions
-    resources :customers
-    resources :cart_items
-    resources :orders
-    resources :adresses
+    resources :homes, only: [:top, :about]
+    resources :items, only: [:index, :show]
+    resources :registrations, only: [:create, :new]
+    resources :sessions, only: [:new, :create, :destroy]
+    resources :customers, only: [:show, :edit, :update, :check, :withdrawl]
+    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+    resources :orders, only: [:new, :confirm, :complete, :create, :index, :show]
+    resources :adresses, only: [:index, :edit, :create, :update, :destroy]
   end
   # 管理者側のルーティング設定
   namespace :admin do
-    resources :items
-    resources :genres
-    resources :customers
-    resources :homes
-    resources :orders
-    resources :order_details
-    resources :sessions
+    resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :homes, only: [:top]
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
+    resources :sessions, only: [:new, :create, :destroy]
   end
 
 
