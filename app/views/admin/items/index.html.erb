@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>商品一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_items.each do |admin_item| %>
+      <tr>
+        <td><%= image_tag 'sample-author1.jpg' %></td>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Item', new_admin_item_path %>

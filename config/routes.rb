@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
@@ -14,12 +15,15 @@ Rails.application.routes.draw do
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+
   # 会員側のルーティング設定
+  root to: 'public/homes#top'
+
   namespace :public do
     resources :homes, only: [:top, :about]
     resources :items, only: [:index, :show]
-    resources :registrations, only: [:create, :new]
-    resources :sessions, only: [:new, :create, :destroy]
+    # resources :registrations, only: [:create, :new]
+    # resources :sessions, only: [:new, :create, :destroy]
     resources :customers, only: [:show, :edit, :update, :check, :withdrawl]
     resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
     resources :orders, only: [:new, :confirm, :complete, :create, :index, :show]
@@ -33,7 +37,7 @@ Rails.application.routes.draw do
     resources :homes, only: [:top]
     resources :orders, only: [:show, :update]
     resources :order_details, only: [:update]
-    resources :sessions, only: [:new, :create, :destroy]
+    # resources :sessions, only: [:new, :create, :destroy]
   end
 
 
