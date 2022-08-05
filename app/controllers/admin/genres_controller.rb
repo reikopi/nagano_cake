@@ -11,12 +11,18 @@ end
 
 def create
   @genre = Genre.new(genre_params)
+  @genre.save
 end
 
 def edit
+  @genre = Genre.find(params[:id])
+
 end
 
 def update
+  @genre = Genre.find(params[:id])
+  @genre.update(params[:id])
+
 end
 
 private
