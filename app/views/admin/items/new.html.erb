@@ -1,5 +1,26 @@
 <h1>新規商品登録</h1>
 
-<%= render 'form', admin_item: @admin_item %>
+<%= form_with model: @item do |f| %>
 
-<%= link_to 'Back', admin_items_path %>
+<h4>商品画像</h4>
+<%= f.file_field :image, accept: "image/*" %>
+
+<h4>商品名</h4>
+<%= f.text_field :name %>
+
+<h4>商品説明</h4>
+<%= f.text_area :introduction %>
+
+<h4>ジャンル（後で作る）</h4>
+
+
+<h4>税抜価格</h4>
+<input type="number" step="1">円
+<div class="error">整数のみ入力できます</div>
+
+
+<h4>販売ステータス</h4>
+
+
+
+<%= f.submit '新規登録' %>

@@ -18,10 +18,9 @@ Rails.application.routes.draw do
 
   # 会員側のルーティング設定
   root to: 'public/homes#top'
-  get '/about' => 'homes#about'
+  get 'public/homes/about' => 'homes#about', as:'about'
 
   namespace :public do
-    resources :homes, only: [:about]
     resources :items, only: [:index, :show]
     # resources :registrations, only: [:create, :new]
     # resources :sessions, only: [:new, :create, :destroy]
