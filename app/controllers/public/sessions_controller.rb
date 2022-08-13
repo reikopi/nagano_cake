@@ -2,24 +2,37 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  before_action :customer_state, only: [:create]
+  # before_action :customer_state, only: [:create]
+
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def after_sign_in_path_for(resource)
+   public_items_path
+  end
+
+  def after_sign_out_path_for(resource)
+   root_path
+  end
+
+
 
 
 
   # GET /resource/sign_in
-  def new
-    super
-  end
+  # def new
+    # super
+  # end
 
   # POST /resource/sign_in
-  def create
-    super
-  end
+  # def create
+    # super
+  # end
 
   # DELETE /resource/sign_out
-  def destroy
-    super
-  end
+  # def destroy
+    # super
+  # end
 
   protected
   # 退会しているかを判断するメソッド

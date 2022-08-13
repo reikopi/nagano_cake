@@ -14,18 +14,15 @@
   </thead>
 
   <tbody>
-    <% @admin_items.each do |admin_item| %>
+    <% @items.each do |item| %>
       <tr>
-        <td><%= image_tag 'sample-author1.jpg' %></td>
+        <td><%= item.id %></td>
         <td><%= item.name %></td>
         <td><%= item.price %></td>
-        <td></td>
-        <td></td>
+        <td><%= item.genre_id %></td>
+        <td><%= item.is_active %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Admin Item', new_admin_item_path %>
