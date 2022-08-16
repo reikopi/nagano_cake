@@ -1,0 +1,30 @@
+<h1><%= customer.name %>さんの会員情報編集</h1>
+
+<%= form_with model: @customer do |f| %>
+
+<p>会員ID<%= customer.id %></p>
+<p>氏名</p>
+<%= f.text_field :customer.name %>
+
+<p>フリガナ</p>
+<%= f.text_field :customer.name_kana %>
+
+<p>郵便番号</p>
+<%= f.text_field :customer.postal_code %>
+
+<p>住所</p>
+<%= f.text_area :customer.address %>
+
+<p>電話番号</p>
+<%= f.text_field :customer.telephone_number %>
+
+
+
+<p>メールアドレス</p>
+<%= f.email_field :customer.email %>
+
+<p>会員ステータス　enumを使う？</p>
+
+<%= f.submit '変更を保存' %>
+<% link_to "編集する", edit_admin_customer_path %>
+<% link_to "注文履歴一覧を見る", public_orders_path %>
