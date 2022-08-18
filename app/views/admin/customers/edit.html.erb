@@ -4,10 +4,12 @@
 
 <p>会員ID<%= customer.id %></p>
 <p>氏名</p>
-<%= f.text_field :customer.name %>
+<%= f.text_field :customer.last_name %>
+<%= f.text_field :customer.first_name %>
 
 <p>フリガナ</p>
-<%= f.text_field :customer.name_kana %>
+<%= f.text_field :customer.last_name_kana %>
+<%= f.text_field :customer.first_name_kana %>
 
 <p>郵便番号</p>
 <%= f.text_field :customer.postal_code %>
@@ -25,6 +27,6 @@
 
 <p>会員ステータス　enumを使う？</p>
 
-<%= f.submit '変更を保存' %>
+
 <% link_to "編集する", edit_admin_customer_path %>
 <% link_to "注文履歴一覧を見る", public_orders_path %>

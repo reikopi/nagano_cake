@@ -1,0 +1,49 @@
+<h1>注文履歴詳細</h1>
+
+<p>購入者</p>
+<%= customer.name %>
+<p>注文日　後で</p>
+
+<p>配送先</p>
+<!--郵便番号-->
+<%= customer.postal_code %>
+<!--住所-->
+<%= customer.address %>
+<!--宛先-->
+<%= customer.name %>
+
+<p>支払方法 enum</p>
+
+
+<p>注文ステータス enum</p>
+
+
+<table>
+  <thead>
+
+  <tr>
+    <th>商品名</th>
+    <th>単価（税込）</th>
+    <th>数量</th>
+    <th>小計</th>
+    <th>制作ステータス</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+      <td><%= item.name %></td>
+      <!--税抜なので税込に直す↓-->
+      <td><%= item.price %></td>
+      <td><%= order_detail.amount %></td>
+      <td></td>
+      <td></td>
+      <!--まだコントローラのアップデート修正してない↓-->
+      <td><%= f.submit '更新' %></td>
+
+
+    </tr>
+  </tbody>
+</table>
