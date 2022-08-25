@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_public_item_path(@public_item) %> |
-<%= link_to 'Back', public_items_path %>
+
+<P><% image_tag item.get_image(100, 100) %></P>
+<p><% item.name %></p>
+<p><% item.introduction %></p>
+<p><% item.price %></p>
+
+<!--個数選択-->
+<!--カートに入れるを作る-->
