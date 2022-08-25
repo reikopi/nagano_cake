@@ -5,14 +5,13 @@
 <%= form_with model: @address do |f| %>
 
  <h4>郵便番号（ハイフンなし）</h4>
-<%= f.text_field :address.postal_code %>
+<%= f.text_field :postal_code %>
 
 <h4>住所</h4>
-<%= f.text_area :address.address %>
+<%= f.text_area :address %>
 
 <h4>宛名</h4>
-<%= f.text_field :address.name %>
-
+<%= f.text_field :name %>
 
 <%= f.submit '新規登録' %>
 
@@ -38,8 +37,8 @@
     <td><%= address.postal_code %></td>
     <td><%= address.address %></td>
     <td><%= address.name %></td>
-    <td>編集する　後で作成</td>
-    <td>削除する　後で作成</td>
+    <td><%= link_to "編集する", edit_public_address_path(@address.id) %></td>
+    <td><%=link_to "削除する", public_address_path(@address.id),method: :delete %></td>
     </tr>
     <% end %>
   </tbody>

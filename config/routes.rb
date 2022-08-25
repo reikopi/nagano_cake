@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     resource :customer, only: [:show, :edit, :update, :check, :withdrawl]
     resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
     resources :orders, only: [:new, :confirm, :complete, :create, :index, :show]
-    resources :adresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
   # 管理者側のルーティング設定
   namespace :admin do
