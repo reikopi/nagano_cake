@@ -5,7 +5,7 @@ class Public::SessionsController < Devise::SessionsController
   # before_action :customer_state, only: [:create]
 
 
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  # before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
    public_items_path
