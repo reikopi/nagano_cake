@@ -17,8 +17,7 @@
 <% @customers.each do |customer| %>
  <tr>
   <td><%= customer.id %></td>
-  <td><%= customer.last_name %>
-     <%= customer.first_name %></td>
+  <td><%= link_to customer.full_name , admin_customer_path(customer) %></td>
   <td><%= customer.email %></td>
   <td><%= customer.is_active %></td>
 </tr>
@@ -27,4 +26,4 @@
 </tbody>
 </table>
 
-<%= paginate customers %>
+<%= paginate @customers %>

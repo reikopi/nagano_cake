@@ -1,28 +1,28 @@
 <h1>会員情報編集</h1>
 
-<%= form_with model: @customer do |f| %>
+<%= form_with model: @customer, url: public_customer_path do |f| %>
 
 <p>氏名</p>
-<%= f.text_field :customer.last_name %>
-<%= f.text_field :customer.first_name %>
+<%= f.text_field :last_name %>
+<%= f.text_field :first_name %>
 
 <p>フリガナ</p>
-<%= f.text_field :customer.last_name_kana %>
-<%= f.text_field :customer.first_name_kana %>
+<%= f.text_field :last_name_kana %>
+<%= f.text_field :first_name_kana %>
 
 <p>郵便番号</p>
-<%= f.text_field :customer.postal_code %>
+<%= f.text_field :postal_code %>
 
 <p>住所</p>
-<%= f.text_area :customer.address %>
+<%= f.text_area :ddress %>
 
 <p>電話番号</p>
-<%= f.text_field :customer.telephone_number %>
+<%= f.text_field :telephone_number %>
 
 
 
 <p>メールアドレス</p>
-<%= f.email_field :customer.email %>
+<%= f.email_field :email %>
 
  <%= f.submit "編集内容を保存" %>
 
