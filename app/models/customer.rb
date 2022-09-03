@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+ enum is_active: { member: 0, withdrawal: 1 }
 
   def full_name
     last_name+first_name

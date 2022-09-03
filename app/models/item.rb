@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
 
   has_one_attached :image
-  belongs_to :user
+  belongs_to :genre
   enum is_active: { sale: 0, discontinued: 1 }
 
 
