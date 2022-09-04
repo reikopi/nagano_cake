@@ -14,4 +14,8 @@ def get_image
 end
 
 
+def add_tax_price
+  (self.price * 1.1).round
+end
+
 end

@@ -6,8 +6,8 @@
 <% @items.each do |item| %>
 <div>
   <P><%= image_tag item.image %></P>
-  <p>商品名<%= item.name %></p>
-  <p><%= item.price %></p>
+  <p>商品名<%= link_to item.name, public_item_path(item.id) %></p>
+  <p>¥<%= item.price.to_s(:delimited) %></p>
 </div>
 <% end %>
 
