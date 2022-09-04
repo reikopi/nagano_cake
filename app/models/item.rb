@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 
   has_one_attached :image
   belongs_to :genre
-  enum is_active: { sale: 0, discontinued: 1 }
+  # enum is_active: { sale: 0, discontinued: 1 }
 
 
 def get_image

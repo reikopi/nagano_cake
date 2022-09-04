@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>商品一覧(全X件)</h1>
+<h1>商品一覧(全<%= @items.where('created_at > ?', Date.today).count %>件)</h1>
 <!--全何件と表示するにはどうしたらいいのか調べる-->
 
 <% @items.each do |item| %>
 <div>
-  <%= image_tag item.get_image %>
-  <P><% image_tag item.get_image(100, 100) %></P>
-  <p>商品名<% item.name %></p>
-  <p><% item.price %></p>
+  <P><%= image_tag item.image %></P>
+  <p>商品名<%= item.name %></p>
+  <p><%= item.price %></p>
 </div>
 <% end %>
 
