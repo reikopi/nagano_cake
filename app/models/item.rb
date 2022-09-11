@@ -2,6 +2,7 @@ class Item < ApplicationRecord
 
   has_one_attached :image
   belongs_to :genre
+  has_many :cart_items, dependent: :destroy
   # enum is_active: { sale: 0, discontinued: 1 }
 
 

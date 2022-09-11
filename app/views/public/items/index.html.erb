@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>商品一覧(全<%= @items.where('created_at > ?', Date.today).count %>件)</h1>
+<h1>商品一覧(全<%= @items.where('created_at > ?', 2.months.ago).count %>件)</h1>
 <!--全何件と表示するにはどうしたらいいのか調べる-->
 
 <% @items.each do |item| %>

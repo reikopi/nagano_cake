@@ -1,1 +1,27 @@
-index
+<h1>ショッピングカート</h1>
+
+
+
+
+<table>
+  <thead>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>小計</th>
+  </thead>
+  <tbody>
+  <% @cart_items.each do |cart_item| %>
+      <tr>
+          <td><%= cart_item.item.name %></td>
+          <td><%= cart_item.item.add_tax_price %></td>
+          <td><%= cart_item.amount %></td>
+          <td><%= cart_item.subtotal %></td>
+          <td><%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p>合計金額<%= @total.round.to_s(:delimited)%></p>
+
+

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'public/homes/about' => 'public/homes#about', as:'about'
 
   namespace :public do
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show ,:create]
     # resources :registrations, only: [:create, :new]
     # resources :sessions, only: [:new, :create, :destroy]
     resource :customer, only: [:show, :edit, :update, :check, :withdrawl]
