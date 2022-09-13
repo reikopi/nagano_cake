@@ -9,6 +9,7 @@ class Customer < ApplicationRecord
 
  has_many :addresses, dependent: :destroy
  has_many :cart_items, dependent: :destroy
+ has_many :orders, dependent: :destroy
 
 # enum is_active: { member: 0, withdrawal: 1 }
 
@@ -19,4 +20,9 @@ class Customer < ApplicationRecord
   def full_name_kana
     last_name_kana+first_name_kana
   end
+
+  def own_infomation
+    postal_code+address+full_name
+  end
+
 end

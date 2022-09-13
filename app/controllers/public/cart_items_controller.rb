@@ -10,6 +10,9 @@ def index
 end
 
 def update
+  @cart_item = CartItem.find(params[:id])
+  @cart_item.update(amount: params[:cart_item][:amount])
+  redirect_to public_cart_items_path
 end
 
 def destroy
@@ -19,6 +22,8 @@ def destroy
 end
 
 def destroy_all
+  CartItem.destroy_all
+  redirect_to public_cart_items_path
 end
 
 def create
@@ -39,7 +44,7 @@ end
 
 private
   def cart_item_params
-      params.require(:cart_item).permit(:item_id, :amount)
+      params.require(:cart_item).permit(:item_id, :amount, :id)
   end
 
 
