@@ -7,19 +7,34 @@
       <th>小計</th>
   </thead>
   <tbody>
-  <% @current_customer.cart_items.each do |cart_item| %>
+  <% current_customer.cart_items.each do |cart_item| %>
       <tr>
           <td><%= cart_item.item.name %></td>
           <td><%= cart_item.item.add_tax_price %></td>
-          <td>
-            <%= form_with model: cart_item, url:public_cart_item_path(cart_item.id), method: :patch do |f| %>
-            <%= f.select :amount, [*(1..10)], include_blank: false, selected: cart_item.amount %>
-            <%= f.submit "変更" %>
-            <% end %>
-          </td>
+          <td><%= cart_item.amount %></td>
           <td><%= cart_item.subtotal %></td>
-          <td><%= link_to "削除する", public_cart_item_path(cart_item.id), method: :delete %></td>
       </tr>
   <% end %>
+
   </tbody>
 </table>
+<p>送料<%= 800 %></p>
+<p>商品金額<%= @total.round.to_s(:delimited)%></p>
+<p>請求金額<%= (800 + @total.round).to_s(:delimited)%></p>
+
+<div>支払い方法<%= @order.payment_method %></div>
+
+<div>お届け先
+〒<%= @order.postal_code %><%= @order.address %></br>
+<%= @order.name %>
+</div>
+
+
+<%= form_with model: @order, url:public_orders_path do |f| %>
+<%= f.hidden_field :address, :value => @order.address %>
+<!--<= f.hidden_field :payment_method %>-->
+<!--<= f.hidden_field :address.id %>-->
+
+<%= f.submit '注文を確定する' ,class: 'btn btn-success btn-sm'%>
+<% end %>
+

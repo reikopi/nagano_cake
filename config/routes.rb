@@ -30,7 +30,12 @@ Rails.application.routes.draw do
            delete 'destroy_all'
         end
     end
-    resources :orders, only: [:new, :confirm, :complete, :create, :index, :show]
+
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
+    resources :orders, only: [:new, :create, :index, :show] do
+
+    end
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
   # 管理者側のルーティング設定
