@@ -13,15 +13,16 @@
   <tbody>
     <% @orders.each do |order| %>
     <tr>
-      <td><%= order.created_at %></td>
+      <td><%= l order.created_at %></td>
       <td>〒<%= order.postal_code %><%= order.address %></br>
       <%= order.name %></td>
-      <td><% @order_details.each do |order_detail|  %>
-          <% order_detail.item_id %>
+      <td>
+        <% order.order_details.each do |order_detail|  %>
+          <%= order_detail.item.name %>
           <% end %>
       </td>
       <td><%= order.billing_amount.to_s(:delimited) %>円</td>
-      <td><%= order.status %></td>
+      <td><%= order.status_i18n %></td>
       <td><%= link_to "表示する", public_order_path(order.id) %></td>
     </tr>
     <% end %>
