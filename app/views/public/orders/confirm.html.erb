@@ -22,7 +22,7 @@
 <p>商品金額<%= @total.round.to_s(:delimited)%></p>
 <p>請求金額<%= (800 + @total.round).to_s(:delimited)%></p>
 
-<div>支払い方法<%= @order.payment_method %></div>
+<div>支払い方法<%= @order.payment_method_i18n %></div>
 
 <div>お届け先
 〒<%= @order.postal_code %><%= @order.address %></br>
@@ -31,9 +31,16 @@
 
 
 <%= form_with model: @order, url:public_orders_path do |f| %>
+<!--<= f.hidden_field :item.name, :value => cart_item.item.name %>-->
+<!--<= f.hidden_field :item.price, :value => cart_item.item.add_tax_price %>-->
+<!--<= f.hidden_field :item.amount, :value => cart_item.amount %>-->
+<%= f.hidden_field :postage, :value => 800 %>
+<%= f.hidden_field :billing_amount, :value => 800 + @total.round %>
+<%= f.hidden_field :payment_method, :value => @order.payment_method %>
+<%= f.hidden_field :postal_code, :value => @order.postal_code %>
 <%= f.hidden_field :address, :value => @order.address %>
-<!--<= f.hidden_field :payment_method %>-->
-<!--<= f.hidden_field :address.id %>-->
+<%= f.hidden_field :name, :value => @order.name %>
+
 
 <%= f.submit '注文を確定する' ,class: 'btn btn-success btn-sm'%>
 <% end %>

@@ -27,11 +27,19 @@ def confirm
 end
 
 def create
-  @order = Order.find(params[:id])
-  @order = Order.new
-  if @order.save
-  redirect_to public_orders_complete_path
-  end
+  @order = Order.new(order_params)
+  @order.customer_id = current_customer.id
+ @order.save
+ current_customer.cart_items.each do |cart_item|
+    @order_detail = OrderDetail.new
+    @order_detail.item_id = cart_item.item_id
+    @order_detail.order_id = @order.id
+    @order_detail.price = cart_item.item.add_tax_price
+    @order_detail.amount = cart_item.amount
+    @order_detail.save
+   end
+   current_customer.cart_items.destroy_all
+   redirect_to public_orders_complete_path
 end
 
 def complete
@@ -39,6 +47,8 @@ end
 
 
 def index
+  @orders = Order.all
+  @order_details = OrderDetail.all
 end
 
 def show
@@ -47,7 +57,6 @@ end
 private
 
     def order_params
-      params.require(:order).permit(:payment_method, :own_infomation, :postal_code, :address, :name, :id, :address_id)
+      params.require(:order).permit(:payment_method, :postal_code, :address, :name, :postage, :billing_amount)
     end
-
 end

@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create, :index, :show] do
 
     end
+    resources :order_details, only: []
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
   # 管理者側のルーティング設定

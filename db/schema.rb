@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 2022_09_03_144029) do
     t.integer "order_id"
     t.integer "price", null: false
     t.integer "amount", null: false
-    t.integer "making_status", null: false
+    t.integer "making_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_order_details_on_item_id"
@@ -128,9 +128,8 @@ ActiveRecord::Schema.define(version: 2022_09_03_144029) do
     t.string "name", null: false
     t.integer "postage", null: false
     t.integer "billing_amount", null: false
-    t.integer "payment", null: false
     t.integer "payment_method", null: false
-    t.integer "status", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
