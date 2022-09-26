@@ -10,6 +10,12 @@
           production: "制作中"
           preparation: "発送準備中"
           sent: "発送済み"
+      order_detail:
+        making_status:
+          impossible: "制作不可"
+          waiting: "制作待ち"
+          start: "制作中"
+          finish: "制作完了"
     time:
       formats:
         default: "%Y/%m/%d"

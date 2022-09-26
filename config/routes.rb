@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show ,:create]
     # resources :registrations, only: [:create, :new]
     # resources :sessions, only: [:new, :create, :destroy]
-    resource :customer, only: [:show, :edit, :update, :check, :withdrawl]
+    resource :customer, only: [:show, :edit, :update]
     resources :cart_items, only: [:index, :update, :destroy, :create] do
         collection do
            delete 'destroy_all'
@@ -33,6 +33,10 @@ Rails.application.routes.draw do
 
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
+    get 'customers/check' => 'customers#check'
+    patch 'withdrawl' => 'customers#withdrawl'
+
+
     resources :orders, only: [:new, :create, :index, :show] do
 
     end
@@ -40,6 +44,8 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
   # 管理者側のルーティング設定
+  get 'admin/homes/top' => 'admin/homes#top', as:'top'
+
   namespace :admin do
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]

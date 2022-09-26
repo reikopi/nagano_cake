@@ -1,14 +1,24 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+
+<div class="row">
+
 
 <h1>商品一覧(全<%= @items.where('created_at > ?', 2.months.ago).count %>件)</h1>
 <!--全何件と表示するにはどうしたらいいのか調べる-->
 
 <% @items.each do |item| %>
+<div class="col-md-3">
 <div>
-  <P><%= image_tag item.image %></P>
+  <P><%= image_tag item.get_image(200, 200) %></P>
   <p>商品名<%= link_to item.name, public_item_path(item.id) %></p>
   <p>¥<%= item.price.to_s(:delimited) %></p>
 </div>
+</div>
 <% end %>
+</div>
+
 
 <%= paginate @items %>
+</div>
+

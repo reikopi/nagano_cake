@@ -28,8 +28,8 @@ end
 
 def create
   @order = Order.new(order_params)
-  @order.customer_id = current_customer.id
- @order.save
+  @order.customer = current_customer
+ @order.save!
  current_customer.cart_items.each do |cart_item|
     @order_detail = OrderDetail.new
     @order_detail.item_id = cart_item.item_id
@@ -47,7 +47,7 @@ end
 
 
 def index
-  @orders = Order.all
+  @orders = current_customer.orders
   @order_details = OrderDetail.all
 end
 

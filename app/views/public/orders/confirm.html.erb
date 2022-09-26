@@ -1,5 +1,5 @@
 <h1>注文情報確認</h1>
-<table>
+<table class="table table-hover table-inverse">
   <thead>
       <th>商品名</th>
       <th>単価(税込)</th>
@@ -10,17 +10,17 @@
   <% current_customer.cart_items.each do |cart_item| %>
       <tr>
           <td><%= cart_item.item.name %></td>
-          <td><%= cart_item.item.add_tax_price %></td>
+          <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
           <td><%= cart_item.amount %></td>
-          <td><%= cart_item.subtotal %></td>
+          <td><%= cart_item.subtotal.to_s(:delimited) %></td>
       </tr>
   <% end %>
 
   </tbody>
 </table>
 <p>送料<%= 800 %></p>
-<p>商品金額<%= @total.round.to_s(:delimited)%></p>
-<p>請求金額<%= (800 + @total.round).to_s(:delimited)%></p>
+<p>商品金額<%= @total.round.to_s(:delimited) %></p>
+<p>請求金額<%= (800 + @total.round).to_s(:delimited) %></p>
 
 <div>支払い方法<%= @order.payment_method_i18n %></div>
 
@@ -31,9 +31,6 @@
 
 
 <%= form_with model: @order, url:public_orders_path do |f| %>
-<!--<= f.hidden_field :item.name, :value => cart_item.item.name %>-->
-<!--<= f.hidden_field :item.price, :value => cart_item.item.add_tax_price %>-->
-<!--<= f.hidden_field :item.amount, :value => cart_item.amount %>-->
 <%= f.hidden_field :postage, :value => 800 %>
 <%= f.hidden_field :billing_amount, :value => 800 + @total.round %>
 <%= f.hidden_field :payment_method, :value => @order.payment_method %>

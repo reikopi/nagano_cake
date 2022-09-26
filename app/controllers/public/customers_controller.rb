@@ -15,9 +15,14 @@ def update
 end
 
 def check
+  @customer = Customer.find_by(email: params[:email])
 end
 
 def withdrawl
+  @customer = current_customer
+  @customer.update(is_active: false)
+  reset_session
+  redirect_to root_path
 end
 
 
