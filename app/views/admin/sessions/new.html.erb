@@ -1,4 +1,7 @@
-<h2>管理者ログイン</h2>
+<div class="text-center" style="padding:50px 0">
+<div class="logo">管理者ログイン</div>
+<div class="login-form-1">
+
 <%= form_with model: @admin, url: new_admin_session_path do |f| %>
 
 <!--#%= form_forを消す-->
@@ -24,5 +27,6 @@
     <%= f.submit "ログイン" %>
   </div>
 <% end %>
-
+</div>
 <%= render "admin/shared/links" %>
+</div>

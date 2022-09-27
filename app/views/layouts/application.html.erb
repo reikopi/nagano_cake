@@ -15,29 +15,60 @@
       <!--管理者がログインをした場合はどうしたら？-->
       <!--管理者-->
       <% if admin_signed_in? %>
-      <li><%= link_to "商品一覧", admin_items_path %></li>
-      <li><%= link_to "会員一覧", admin_customers_path %></li>
-      <li><%= link_to "注文履歴一覧", top_path %></li>
-      <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
-      <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+         <a class ="navbar-brand">ながのCAKE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
 
+            <a class="nav-link"><%= link_to "商品一覧", admin_items_path %></a>
+            <a class="nav-link"><%= link_to "会員一覧", admin_customers_path %></a>
+            <a class="nav-link"><%= link_to "注文履歴一覧", top_path %></a>
+            <a class="nav-link"><%= link_to "ジャンル一覧", admin_genres_path %></a>
+            <a class="nav-link"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></a>
+        </div>
+      </nav>
       <!--customers-->
       <% elsif customer_signed_in? %>
-      <li><%= link_to "マイページ", public_customer_path %></li>
-      <li><%= link_to "商品一覧", public_items_path %></li>
-      <li><%= link_to "カート", public_cart_items_path %></li>
-      <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+         <a class ="navbar-brand">ながのCAKE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
 
+           <a class="nav-link"><%= link_to "マイページ", public_customer_path %></a>
+           <a class="nav-link"><%= link_to "商品一覧", public_items_path %></a>
+           <a class="nav-link"><%= link_to "カート", public_cart_items_path %></a>
+           <a class="nav-link"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></a>
+         </div>
+      </nav>
       <!--それ以外-->
       <% else %>
-      <li><%= link_to "About", about_path %></li>
-      <li><%= link_to "商品一覧", public_items_path %></li>
-      <li><%= link_to "新規登録", new_customer_registration_path %></li>
-      <li><%= link_to "ログイン", new_customer_session_path %></li>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+         <a class ="navbar-brand">ながのCAKE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="nav-link"><%= link_to "About", about_path %></a>
+          <a class="nav-link"><%= link_to "商品一覧", public_items_path %></a>
+          <a class="nav-link"><%= link_to "新規登録", new_customer_registration_path %></a>
+          <a class="nav-link"><%= link_to "ログイン", new_customer_session_path %></a>
+        </div>
+      </nav>
+
       <% end %>
 
 
     </header>
     <%= yield %>
+
+　　　<footer class="footer">
+  　　　<div class="container">
+    　<p class="text-muted">NAGANO CAKE.</p>
+  　　</div>
+　　　</footer>
   </body>
 </html>

@@ -19,3 +19,4 @@
     time:
       formats:
         default: "%Y/%m/%d"
+        short: "%Y/%m/%d %H:%M:%S"

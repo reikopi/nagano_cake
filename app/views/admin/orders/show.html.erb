@@ -1,39 +1,53 @@
-<h1>注文履歴詳細</h1>
+<h4>注文履歴詳細</h4>
 
-<p>購入者
-<%= @order.customer.full_name %>
-</p>
-<p>注文日
-<%= l @order.created_at %>
-</p>
-<p>配送先
-<!--郵便番号-->
-<%= @order.postal_code %>
-<!--住所-->
-<%= @order.address %>
-</br>
-<%= @order.name %>
-</p>
-<p>支払方法
-<%= @order.payment_method_i18n %>
-</p>
-<p>注文ステータス
-<%= form_with model: @order, url:admin_order_path, method: :patch do |f| %>
-    <%= f.select :status, Order.statuses_i18n.invert %>
-    <%= f.submit "更新" %>
-<% end %>
-</p>
-
-<table>
-  <thead>
+<table class="table">
+  <tbody>
+  <tr>
+  <th>購入者</th>
+  <th><%= @order.customer.full_name %></th>
+  </tr>
 
   <tr>
-    <th>商品名</th>
-    <th>単価（税込）</th>
-    <th>数量</th>
-    <th>小計</th>
-    <th>制作ステータス</th>
-    <th></th>
+  <th>注文日</th>
+  <th><%= l @order.created_at %></th>
+  </tr>
+
+  <tr>
+  <th>配送先</th>
+  <th>
+    <%= @order.postal_code %>
+    <%= @order.address %></br>
+    <%= @order.name %>
+  </th>
+  </tr>
+
+  <tr>
+  <th>支払方法</th>
+  <th><%= @order.payment_method_i18n %></th>
+  </tr>
+
+  <tr>
+  <th>注文ステータス</th>
+  <th><%= form_with model: @order, url:admin_order_path, method: :patch do |f| %>
+      <%= f.select :status, Order.statuses_i18n.invert %>
+      <%= f.submit "更新", class:"btn btn-success" %>
+      <% end %>
+  </th>
+  </tr>
+
+</tbody>
+</table>
+
+<table class="table">
+  <thead class="thead-dark">
+
+  <tr>
+    <th scope="col">商品名</th>
+    <th scope="col">単価（税込）</th>
+    <th scope="col">数量</th>
+    <th scope="col">小計</th>
+    <th scope="col">制作ステータス</th>
+    <th scope="col"></th>
   </tr>
   </thead>
 
@@ -48,7 +62,7 @@
       <td>
       <%= form_with model: order_detail, url:admin_order_detail_path, method: :patch do |f| %>
       <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert %>
-      <%= f.submit "更新" %>
+      <%= f.submit "更新", class:"btn btn-success" %>
       <% end %>
      </td>
     </tr>
