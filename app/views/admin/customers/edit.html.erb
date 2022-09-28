@@ -1,41 +1,68 @@
-<h1><%= @customer.full_name %>さんの会員情報編集</h1>
+<h4><%= @customer.full_name %>さんの会員情報編集</h4>
 
+<table class="table">
+  <tbody>
 <%= form_with model: @customer, url:admin_customer_path do |f| %>
 
-<p>会員ID<%= @customer.id %></p>
-<p>氏名</p>
-<%= f.text_field :last_name %>
-<%= f.text_field :first_name %>
+ <tr>
+   <th>会員ID</th>
+   <th><%= @customer.id %></th>
+ </tr>
 
-<p>フリガナ</p>
-<%= f.text_field :last_name_kana %>
-<%= f.text_field :first_name_kana %>
+ <tr>
+   <th>氏名</th>
+   <th>
+     <%= f.text_field :last_name %>
+     <%= f.text_field :first_name %>
+   </th>
+ </tr>
 
-<p>郵便番号</p>
-<%= f.text_field :postal_code %>
+ <tr>
+   <th>フリガナ</th>
+   <th>
+     <%= f.text_field :last_name_kana %>
+     <%= f.text_field :first_name_kana %>
+   </th>
+ </tr>
 
-<p>住所</p>
-<%= f.text_area :address %>
-
-<p>電話番号</p>
-<%= f.text_field :telephone_number %>
-
+ <tr>
+   <th>郵便番号</th>
+   <th><%= f.text_field :postal_code %></th>
+ </tr>
 
 
-<p>メールアドレス</p>
-<%= f.email_field :email %>
+ <tr>
+   <th>住所</th>
+   <th><%= f.text_area :address %></th>
+ </tr>
 
-<p>会員ステータス</p>
-<%= f.radio_button :is_active, true %>
-<%= f.label :is_active, "有効" %>
+ <tr>
+   <th>電話番号</th>
+   <th><%= f.text_field :telephone_number %></th>
+ </tr>
 
-<%= f.radio_button :is_active, false %>
-<%= f.label :is_active, "退会" %>
 
-<%= f.submit "編集内容を保存" %>
+ <tr>
+   <th>メールアドレス</th>
+   <th><%= f.email_field :email %></th>
+ </tr>
+
+ <tr>
+   <th>会員ステータス</th>
+   <th>
+     <%= f.radio_button :is_active, true %>
+     <%= f.label :is_active, "有効" %>
+
+     <%= f.radio_button :is_active, false %>
+     <%= f.label :is_active, "退会" %>
+   </th>
+ </tr>
+
+
+</tbody>
+</table>
+
+<%= f.submit "編集内容を保存", class:"btn btn-success" %>
 
 <% end %>
 
-
-<% link_to "編集する", edit_admin_customer_path %>
-<% link_to "注文履歴一覧を見る", public_orders_path %>

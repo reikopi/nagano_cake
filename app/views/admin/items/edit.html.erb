@@ -1,33 +1,53 @@
-<h1>商品編集</h1>
-
+<h4>商品編集</h4>
+<div class="text-center">
 <%= form_with model: @item, url: admin_item_path do |f| %>
 
-<h4>商品画像</h4>
-<%= f.file_field :image, accept: "image/*" %>
+<table class="table">
+<tbody>
+  <tr>
+  <th>商品画像</th>
+  <th><%= f.file_field :image, accept: "image/*" %></th>
+  </tr>
+  <tr>
 
-<h4>商品名</h4>
-<%= f.text_field :name %>
+  <tr>
+    <th>商品名</th>
+    <th><%= f.text_field :name %></th>
+  </tr>
 
-<h4>商品説明</h4>
-<%= f.text_area :introduction %>
+  <tr>
+    <th>商品説明</th>
+    <th><%= f.text_area :introduction %></th>
+  </tr>
 
-<h4>ジャンル</h4>
-<%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt:"-- 選択してください --"} %>
+  <tr>
+    <th>ジャンル</th>
+    <th><%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt:"-- 選択してください --"} %></th>
+  </tr>
+
+  <tr>
+    <th>税抜価格</th>
+    <th><%= f.number_field :price %>円
+       <div class="error">整数のみ入力できます</div>
+    </th>
+
+  </tr>
+
+  <tr>
+    <th>販売ステータス</th>
+    <th><%= f.radio_button :is_active, true %>
+        <%= f.label :is_active, "販売中" %>
+
+        <%= f.radio_button :is_active, false %>
+        <%= f.label :is_active, "販売停止中" %>
+     </th>
+  </tr>
 
 
-<h4>税抜価格</h4>
-<%= f.number_field :price %>円
-<div class="error">整数のみ入力できます</div>
+</tbody>
+</table>
 
-
-<h4>販売ステータス</h4>
-<%= f.radio_button :is_active, true %>
-<%= f.label :is_active, "販売中" %>
-
-<%= f.radio_button :is_active, false %>
-<%= f.label :is_active, "販売停止中" %>
-
-
-<%= f.submit '変更を保存' %>
+<%= f.submit '変更を保存', class:"btn btn-success" %>
 
 <% end %>
+</div>
