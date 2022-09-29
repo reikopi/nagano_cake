@@ -1,9 +1,10 @@
-<h3>マイページ</h3>
+<h4>マイページ</h4>
 
-<h2>登録情報</h2>
-<%= link_to "編集する",edit_public_customer_path %>
+<p>登録情報
+<%= link_to "編集する",edit_public_customer_path, class:"btn btn-success" %>
+</p>
 
-<table>
+<table class="table table-bordered">
     <tbody>
         <tr>
         <th>氏名</th>
@@ -36,9 +37,9 @@
         </tr>
 　　 </tbody>
 </table>
-    <h2>配送先</h2>
-    <%= link_to "一覧を見る", public_addresses_path %>
-
-    <h2>注文履歴</h2>
-    <%= link_to "一覧を見る",public_orders_path %>
-
+    <p>配送先
+    <%= link_to "一覧を見る", public_addresses_path, class:"btn btn-primary" %>
+    </p>
+    <p>注文履歴
+    <%= link_to "一覧を見る",public_orders_path, class:"btn btn-primary" %>
+    </p>
