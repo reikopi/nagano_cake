@@ -1,5 +1,9 @@
-<h1>注文情報確認</h1>
-<table class="table table-hover table-inverse">
+
+<h4>注文情報確認</h4>
+<div class="container">
+<div class="row">
+<div class="col">
+<table class="table table-bordered">
   <thead>
       <th>商品名</th>
       <th>単価(税込)</th>
@@ -18,17 +22,39 @@
 
   </tbody>
 </table>
-<p>送料<%= 800 %></p>
-<p>商品金額<%= @total.round.to_s(:delimited) %></p>
-<p>請求金額<%= (800 + @total.round).to_s(:delimited) %></p>
-
-<div>支払い方法<%= @order.payment_method_i18n %></div>
-
-<div>お届け先
-〒<%= @order.postal_code %><%= @order.address %></br>
-<%= @order.name %>
+</div>
+<div class="col">
+  <table class="table table-bordered">
+    <tr>
+      <th style="width: 10%">送料</th>
+      <th style="width: 10%"><%= 800 %></th>
+    </tr>
+    <tr>
+      <th style="width: 10%">商品金額</th>
+      <th style="width: 10%"><%= @total.round.to_s(:delimited) %></th>
+    </tr>
+    <tr>
+      <th style="width: 10%">請求金額</th>
+      <th style="width: 10%"><%= (800 + @total.round).to_s(:delimited) %></th>
+    </tr>
+ </table>
 </div>
 
+</div>
+</div>
+
+<table>
+  <tr>
+    <th>支払い方法</th>
+    <th><%= @order.payment_method_i18n %></th>
+  </tr>
+  <tr>
+    <th>お届け先</th>
+    <th>〒<%= @order.postal_code %><%= @order.address %></br>
+    <%= @order.name %></th>
+  </tr>
+
+</table>
 
 <%= form_with model: @order, url:public_orders_path do |f| %>
 <%= f.hidden_field :postage, :value => 800 %>
@@ -38,7 +64,8 @@
 <%= f.hidden_field :address, :value => @order.address %>
 <%= f.hidden_field :name, :value => @order.name %>
 
-
+<div class="text-center">
 <%= f.submit '注文を確定する' ,class: 'btn btn-success btn-sm'%>
 <% end %>
+</div>
 

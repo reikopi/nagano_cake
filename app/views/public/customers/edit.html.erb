@@ -1,31 +1,48 @@
-<h1>会員情報編集</h1>
+<h4>会員情報編集</h4>
 
 <%= form_with model: @customer, url: public_customer_path do |f| %>
 
-<p>氏名</p>
-<%= f.text_field :last_name %>
-<%= f.text_field :first_name %>
+<table class="table">
+<tbody>
+  <tr>
+  <th>氏名</th>
+  <th><%= f.text_field :last_name %>
+      <%= f.text_field :first_name %></th>
+  </tr>
+  <tr>
+    <th>フリガナ</th>
+    <th><%= f.text_field :last_name_kana %>
+    <%= f.text_field :first_name_kana %></th>
+  </tr>
 
-<p>フリガナ</p>
-<%= f.text_field :last_name_kana %>
-<%= f.text_field :first_name_kana %>
+  <tr>
+    <th>郵便番号</th>
+    <th><%= f.text_field :postal_code %></th>
+  </tr>
 
-<p>郵便番号</p>
-<%= f.text_field :postal_code %>
+ <tr>
+   <th>住所</th>
+   <th><%= f.text_area :address %></th>
+ </tr>
 
-<p>住所</p>
-<%= f.text_area :ddress %>
+ <tr>
+   <th>電話番号</th>
+   <th><%= f.text_field :telephone_number %></th>
+ </tr>
 
-<p>電話番号</p>
-<%= f.text_field :telephone_number %>
+ <tr>
+   <th>メールアドレス</th>
+   <th><%= f.email_field :email %></th>
+ </tr>
 
 
+</tbody>
+</table>
 
-<p>メールアドレス</p>
-<%= f.email_field :email %>
-
- <%= f.submit "編集内容を保存" %>
+ <%= f.submit "編集内容を保存", class:"btn btn-success" %>
 
 <% end %>
 
-<div class="btn btn-sm btn-danger"><%= link_to "退会する", public_customers_check_path %></div>
+<div class="text-center">
+<%= link_to "退会する", public_customers_check_path, class:"btn btn-danger" %>
+</div>
