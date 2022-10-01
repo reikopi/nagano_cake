@@ -36,8 +36,12 @@
   </tr>
 
 </tbody>
-</table>
+</table
 
+<div="container">
+<div class="row">
+
+<div class="col">
 <table class="table">
   <thead class="thead-dark">
 
@@ -69,4 +73,28 @@
     <% end %>
   </tbody>
 </table>
+</div>
+
+  <div class="col">
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th>商品合計</th>
+        <th><%= @total.round.to_s(:delimited) %></th>
+      </tr>
+      <tr>
+        <th>送料</th>
+        <th><%= 800 %></th>
+      </tr>
+      <tr>
+        <th>請求金額合計</th>
+        <th><%= @order.billing_amount.to_s(:delimited) %></th>
+      </tr>
+    </tbody>
+
+  </table>
+  </div>
+
+  </div>
+  </div>
 
