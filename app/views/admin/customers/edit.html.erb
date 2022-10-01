@@ -1,8 +1,8 @@
 <h4><%= @customer.full_name %>さんの会員情報編集</h4>
 
+<%= form_with model: @customer, url:admin_customer_path do |f| %>
 <table class="table">
   <tbody>
-<%= form_with model: @customer, url:admin_customer_path do |f| %>
 
  <tr>
    <th>会員ID</th>
