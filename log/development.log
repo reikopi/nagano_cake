@@ -16550,3 +16550,74 @@ Processing by Public::CartItemsController#index as HTML
 Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 0.2ms | Allocations: 3983)
 
 
+Started GET "/public/cart_items" for 60.38.7.236 at 2022-10-01 04:35:32 +0000
+Cannot render console from 60.38.7.236! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Public::CartItemsController#index as HTML
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items"[0m
+  ↳ app/controllers/public/cart_items_controller.rb:9:in `inject'
+  Rendering layout layouts/application.html.erb
+  Rendering public/cart_items/index.html.erb within layouts/application
+  Rendered public/cart_items/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2466)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? ORDER BY "customers"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 27.6ms | Allocations: 15249)
+Completed 200 OK in 44ms (Views: 30.2ms | ActiveRecord: 0.9ms | Allocations: 21053)
+
+
+Started GET "/public/customer" for 60.38.7.236 at 2022-10-01 04:35:34 +0000
+Cannot render console from 60.38.7.236! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Public::CustomersController#show as HTML
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? ORDER BY "customers"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/public/customers_controller.rb:4:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering public/customers/show.html.erb within layouts/application
+  Rendered public/customers/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 569)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2656)
+Completed 200 OK in 13ms (Views: 7.6ms | ActiveRecord: 0.1ms | Allocations: 6039)
+
+
+Started GET "/public/customer/edit" for 60.38.7.236 at 2022-10-01 04:35:37 +0000
+Cannot render console from 60.38.7.236! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Public::CustomersController#edit as HTML
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? ORDER BY "customers"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/public/customers_controller.rb:8:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering public/customers/edit.html.erb within layouts/application
+  Rendered public/customers/edit.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1970)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 3978)
+Completed 200 OK in 16ms (Views: 10.2ms | ActiveRecord: 0.1ms | Allocations: 6459)
+
+
+Started GET "/public/customers/check" for 60.38.7.236 at 2022-10-01 04:35:38 +0000
+Cannot render console from 60.38.7.236! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Public::CustomersController#check as HTML
+  [1m[36mCustomer Load (0.4ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/public/customers_controller.rb:18:in `check'
+  Rendering layout layouts/application.html.erb
+  Rendering public/customers/check.html.erb within layouts/application
+  Rendered public/customers/check.html.erb within layouts/application (Duration: 0.7ms | Allocations: 307)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? ORDER BY "customers"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:33
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3134)
+Completed 200 OK in 13ms (Views: 8.8ms | ActiveRecord: 0.5ms | Allocations: 4714)
+
+
+Started GET "/public/customer" for 60.38.7.236 at 2022-10-01 04:35:47 +0000
+Cannot render console from 60.38.7.236! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Public::CustomersController#show as HTML
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? ORDER BY "customers"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/public/customers_controller.rb:4:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering public/customers/show.html.erb within layouts/application
+  Rendered public/customers/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 178)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 2907)
+Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 0.1ms | Allocations: 4174)
+
+
